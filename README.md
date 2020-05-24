@@ -1,0 +1,71 @@
+# Flask Postgres API
+
+## Run locally with docker
+
+Use docker-compose
+```
+docker-compose up
+```
+
+## Run the flask app outside docker
+
+Bring up the Postgres DB container
+```
+docker-compose up db
+```
+
+Install requirements.
+`mypy` takes some time to install
+```
+pip install -r requirements.txt
+```
+
+Initialise environment variables
+```
+export FLASK_APP="src/main.py"
+export POSTGRES_URL="127.0.0.1:54320"
+export POSTGRES_DB="mydb"
+export POSTGRES_USER="postgres"
+export POSTGRES_PASSWORD="example"
+```
+
+Run migrations
+```
+chmod+x run-migrations.sh
+./run-migrations.sh
+```
+
+Run flask
+```
+# initialise environment variables
+flask run
+```
+
+## Run tests
+
+```
+py.test -vv
+```
+
+
+## Run with gunicorn
+
+```
+cd src && gunicorn main:app
+```
+
+
+## Setup in render.com
+
+Build command
+```
+pip install -r requirements.txt && ./run-migrations.sh
+```
+
+Run the app
+```
+cd src && gunicorn app:app
+```
+
+## References
+

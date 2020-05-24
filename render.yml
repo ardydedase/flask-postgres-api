@@ -1,0 +1,39 @@
+services:
+- type: web
+  name: flask-postgres-api
+  env: python
+  repo: https://github.com/ardydedase/flask-postgres-api.git
+  plan: starter
+  branch: master
+  healthCheckPath: /healthcheck
+  # Use ./migrations.sh when running for the first time
+  buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
+  startCommand: "cd src && gunicorn app:app"
+  envVars:
+  - fromGroup: flask-postgres-api-settings
+  - key: POSTGRES_URL
+    fromDatabase:
+      name: flask-postgres-api-db
+      property: host
+  - key: POSTGRES_USER
+    fromDatabase:
+      name: flask-postgres-api-db
+      property: user
+  - key: POSTGRES_PASSWORD
+    fromDatabase:
+      name: flask-postgres-api-db
+      property: password
+  - key: POSTGRES_DB
+    fromDatabase:
+      name: flask-postgres-api-db
+      property: database 
+
+envVarGroups:
+- name: flask-postgres-api-settings
+  envVars:
+  - key: ENV
+    value: production
+
+databases:
+- name: flask-postgres-api-db
+  databaseName: flask-postgres-api

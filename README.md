@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Initialise environment variables. The `.env` is used in `docker-compose.yml`.
 ```
 export FLASK_APP="src/main.py"
-export POSTGRES_URL="127.0.0.1:54320"
+export POSTGRES_URL="127.0.0.1:5432"
 export POSTGRES_DB="mydb"
 export POSTGRES_USER="postgres"
 export POSTGRES_PASSWORD="example"

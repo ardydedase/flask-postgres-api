@@ -6,7 +6,7 @@ WORKDIR /flask-app
 # Copy files
 COPY ./requirements.txt ./
 COPY ./setup.py ./
-COPY ./run-migrations.sh ./
+# COPY ./run-migrations.sh ./
 
 # Copy folders
 COPY ./src ./src

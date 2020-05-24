@@ -49,12 +49,12 @@ py.test -vv
 
 
 ## Run with gunicorn
-
+For production.
 ```
 cd src && gunicorn main:app
 ```
 
-## Setup in render.com
+## Build and run commands in render.com
 
 Build command
 ```

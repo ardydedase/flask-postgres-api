@@ -11,7 +11,7 @@ docker-compose up
 
 Bring up the Postgres DB container
 ```
-docker-compose up db
+docker-compose up -d db
 ```
 
 Install requirements.
@@ -20,7 +20,7 @@ Install requirements.
 pip install -r requirements.txt
 ```
 
-Initialise environment variables
+Initialise environment variables. The `.env` is used in `docker-compose.yml`.
 ```
 export FLASK_APP="src/main.py"
 export POSTGRES_URL="127.0.0.1:54320"
@@ -54,7 +54,6 @@ py.test -vv
 cd src && gunicorn main:app
 ```
 
-
 ## Setup in render.com
 
 Build command
@@ -66,6 +65,3 @@ Run the app
 ```
 cd src && gunicorn app:app
 ```
-
-## References
-

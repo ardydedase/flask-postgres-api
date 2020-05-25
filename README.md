@@ -63,5 +63,5 @@ pip install -r requirements.txt && ./run-migrations.sh
 
 Run the app
 ```
-cd src && gunicorn app:app
+cd src && gunicorn main:app
 ```

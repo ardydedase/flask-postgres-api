@@ -1,5 +1,7 @@
 # Flask Postgres API
 
+![CI](https://github.com/ardydedase/flask-postgres-api/workflows/CI/badge.svg)
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 ## Run locally with docker
